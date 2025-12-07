@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8565482c15f6640abe3e6d3afad37a, type: 3}
+  m_Name: ham
+  m_EditorClassIdentifier: 
+  itemName: ham
+  itemType: 4
+  sprite: {fileID: 21300000, guid: c45a60a2f7c51a847a3dd85b4a39e71e, type: 3}
+  itemPrefab: {fileID: 4895867200300690160, guid: 05c8ba22f5807334d8c4ca8455912c5b, type: 3}
