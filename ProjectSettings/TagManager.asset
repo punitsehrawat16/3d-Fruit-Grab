@@ -8,6 +8,8 @@ TagManager:
   - Collect
   - Throw
   - Ground
+  - TargetSpawner
+  - ScoreUI
   layers:
   - Default
   - TransparentFX

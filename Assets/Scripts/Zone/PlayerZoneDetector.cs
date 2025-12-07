@@ -5,7 +5,7 @@ public class PlayerZoneDetector : MonoBehaviour
     public bool inCollectZone = false;
     public bool inThrowZone = false;
     public bool inTargetZone = false;
-
+    [SerializeField] private TargetSpawner ts;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Collect"))
@@ -15,6 +15,7 @@ public class PlayerZoneDetector : MonoBehaviour
         else if (other.CompareTag("Throw"))
         {
             inThrowZone = true;
+            ts.SpawnTargets();
         }
         else if (other.CompareTag("Target"))
         {
@@ -30,6 +31,7 @@ public class PlayerZoneDetector : MonoBehaviour
         else if (other.CompareTag("Throw"))
         {
             inThrowZone = false;
+            ts.DestroyTargets();
         }
         else if (other.CompareTag("Target"))
         {
