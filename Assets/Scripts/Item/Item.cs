@@ -5,11 +5,10 @@ public class Item : MonoBehaviour, IGrabble
 
 {
     [SerializeField] public ItemData itemData;
-    void Start()
-    {
-        var Uipos = Camera.main.WorldToScreenPoint(ScoreUpdate.Instance.transform.position);
-        Debug.Log("UI Pos: " + Uipos);
-    }
+    [SerializeField]
+    LeanTweenType easeType;
+    
+    
     public bool GrabbingItem()
     {
         var itemType = PlayerInventory.Instance.GetNextItemSeq();
@@ -32,9 +31,11 @@ public class Item : MonoBehaviour, IGrabble
     {
         if (other.CompareTag("TargetSpawner"))
         {
-            ScoreUpdate.Instance.score += 10;
-            ScoreUpdate.Instance.UpdateScoreInUi();
-            StartCoroutine(LerpUI());
+            Vector3 pos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            Debug.Log("Item Pos: " + pos);
+    
+            ScoreUpdate.Instance.PlayScoreAnimation(itemData, pos);
+            StartCoroutine(DestroyItemAfterDelay(0.1f));
         }
     }
     public ItemData GetItemData()
@@ -47,20 +48,4 @@ public class Item : MonoBehaviour, IGrabble
         Destroy(gameObject);
     }
 
-    IEnumerator LerpUI()
-    {
-        var Uipos = Camera.main.ScreenToWorldPoint(ScoreUpdate.Instance.transform.position);
-        Uipos.z = 0;    
-        Debug.Log("UI Pos: " + Uipos);
-        float time = 0;
-        float duration = 1f;
-        while (time<duration)
-        {
-            time += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, Uipos, time);
-            yield return null;
-        Debug.Log("Lerping to UI");
-        }
-        Destroy(gameObject);
-    }
 }

@@ -14,7 +14,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private Vector3 itemCheckPosition;
 
     [SerializeField] private ItemData currenEquipped;
-    [SerializeField] private const string itemGrab = "Press G to grab item";
 
     //ITEM RELATED METHODS
     private ItemType[] itemTypes = { ItemType.cake, ItemType.HamBurger, ItemType.garlic, ItemType.ham, ItemType.Apple, ItemType.Grape, ItemType.Candy, ItemType.carrot };
