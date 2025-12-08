@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreUpdate : MonoBehaviour
@@ -30,15 +31,19 @@ public class ScoreUpdate : MonoBehaviour
     }
     public void PlayScoreAnimation(ItemData data, Vector3 pos)
     {
-        var gO=Instantiate(uiPrefab, uiRectTransform);
+        var gO = Instantiate(uiPrefab, uiRectTransform);
         var Img = gO.GetComponent<Image>();
-       
+
         Img.rectTransform.position = pos;
         Img.sprite = data.sprite;
         Img.SetNativeSize();
         var leanTween = Img.rectTransform.LeanMove(Vector3.zero, 1f).setEaseInOutCubic();
-        var Scaleanimation  = Img.rectTransform.LeanScale(Vector3.zero, 1f).setEaseInOutCubic().setOnComplete(() => { Destroy(gO); });
+        var Scaleanimation = Img.rectTransform.LeanScale(Vector3.zero, 1f).setEaseInOutCubic().setOnComplete(() => { Destroy(gO); });
         score += 10;
         UpdateScoreInUi();
+    }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("PrototypeScene");
     }
 }

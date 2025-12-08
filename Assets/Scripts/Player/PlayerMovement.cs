@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
 
         Vector3 move = new Vector3(turnInput, jumpVelocity, moveInput);
-
+        move.Normalize();
 
         move *= moveSpeed * Time.deltaTime;
         rb.transform.Translate(move);

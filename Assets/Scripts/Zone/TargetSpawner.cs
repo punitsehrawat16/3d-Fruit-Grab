@@ -15,11 +15,9 @@ public class TargetSpawner : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             SpawnPos = new Vector3(Random.Range(lowerLeftbound.position.x, upperRightbound.position.x), 0, Random.Range(lowerLeftbound.position.z, upperRightbound.position.z));
-            //SpawnPos = new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-3.6f, -1.8f));
             while(OverlappingCheck(SpawnPos))
             {
                 SpawnPos = new Vector3(Random.Range(lowerLeftbound.position.x, upperRightbound.position.x), 0, Random.Range(lowerLeftbound.position.z, upperRightbound.position.z));
-                //SpawnPos = new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-3.6f, -1.8f));
             }
             GameObject spawnedTarget = Instantiate(targetSpawner, SpawnPos, Quaternion.identity);
             spawnedTargets.Add(spawnedTarget);

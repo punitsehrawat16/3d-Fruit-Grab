@@ -35,7 +35,8 @@ public class Item : MonoBehaviour, IGrabble
             Debug.Log("Item Pos: " + pos);
     
             ScoreUpdate.Instance.PlayScoreAnimation(itemData, pos);
-            StartCoroutine(DestroyItemAfterDelay(0.1f));
+            //   StartCoroutine(DestroyItemAfterDelay(0.1f));
+            Destroy(gameObject);
         }
     }
     public ItemData GetItemData()
